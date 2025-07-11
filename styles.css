@@ -1,0 +1,275 @@
+/* Base & Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: white;
+  color: #333;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.section {
+  padding: 3rem 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: white;
+  border-bottom: 2px solid pink;
+  z-index: 1000;
+}
+
+.nav-container {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.nav-logo {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: pink;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  font-weight: 600;
+  color: #555;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  color: pink;
+}
+
+/* Hamburger */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  display: block;
+  background: pink;
+  height: 3px;
+  width: 25px;
+  border-radius: 2px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.hamburger::before {
+  top: -8px;
+}
+
+.hamburger::after {
+  top: 8px;
+}
+
+/* Hero Section */
+.hero {
+  padding-top: 6rem;
+  padding-bottom: 3rem;
+  background: white;
+}
+
+.hero-content {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+  padding: 0 1.5rem;
+}
+
+.hero-image {
+  flex: 1 1 300px;
+  max-width: 300px;
+  aspect-ratio: 1 / 1;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 3px solid pink;
+}
+
+.hero-text {
+  flex: 2 1 300px;
+}
+
+.hero-text h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: pink;
+}
+
+/* About Section */
+.about h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: pink;
+}
+
+.about p {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+}
+
+/* Skills Section */
+.skills h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: pink;
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.skill-card {
+  background: #ffe6f0;
+  color: #b30059;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 3px 6px rgba(179, 0, 89, 0.3);
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: default;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-width: 140px;
+  text-align: center;
+}
+
+.skill-card:hover,
+.skill-card:focus {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 16px rgba(179, 0, 89, 0.6);
+}
+
+/* Contact Section */
+.contact h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: pink;
+}
+
+.contact p {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.email-link {
+  display: block;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: pink;
+  transition: color 0.3s ease;
+}
+
+.email-link:hover,
+.email-link:focus {
+  color: #b30059;
+  text-decoration: underline;
+}
+
+/* Responsive */
+
+/* Mobile first: nav menu hidden by default */
+.nav-menu {
+  display: none;
+  flex-direction: column;
+  background: white;
+  position: absolute;
+  top: 60px;
+  right: 1.5rem;
+  width: 180px;
+  border: 2px solid pink;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(179, 0, 89, 0.2);
+  z-index: 999;
+}
+
+.nav-menu.active {
+  display: flex;
+}
+
+.nav-toggle {
+  display: block;
+}
+
+/* Larger screens: show nav menu horizontally and hide toggle */
+@media (min-width: 768px) {
+  .nav-menu {
+    display: flex !important;
+    position: static;
+    flex-direction: row;
+    background: none;
+    border: none;
+    box-shadow: none;
+    width: auto;
+  }
+
+  .nav-toggle {
+    display: none;
+  }
+  
+  .nav-link {
+    font-size: 1rem;
+  }
+}
+
+/* Hero content stack on small screens */
+@media (max-width: 767px) {
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-image {
+    margin: 0 auto;
+  }
+}
